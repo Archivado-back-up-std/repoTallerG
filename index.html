@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Quest - Aventura Retro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div id="startScreen" class="screen">
+        <div class="screen-content">
+            <h1 class="title glitch">PIXEL QUEST</h1>
+            <div class="subtitle">Recupera los Cristales Mágicos</div>
+            
+            <div class="instructions">
+                <h2>CONTROLES:</h2>
+                <p>WASD / FLECHAS - Mover</p>
+                <p>ESC - Pausa</p>
+                <p>ENTER - Comenzar</p>
+            </div>
+            
+            <div class="instructions">
+                <h2>OBJETIVOS:</h2>
+                <p>🔷 Recolectar todos los cristales</p>
+                <p>🔑 Encontrar llaves para puertas</p>
+                <p>⚔️ Evitar enemigos</p>
+                <p>🚪 Alcanzar la salida</p>
+            </div>
+            
+            <div class="high-score">
+                <p>MEJOR PUNTUACIÓN: <span id="highScore">0</span></p>
+            </div>
+            
+            <button id="startButton" class="pixel-button">COMENZAR JUEGO</button>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="gameContainer" class="hidden">
+        <!-- UI Superior -->
+        <div id="gameUI">
+            <div class="ui-section">
+                <span class="ui-label">PUNTOS:</span>
+                <span id="scoreDisplay" class="ui-value">0</span>
+            </div>
+            <div class="ui-section">
+                <span class="ui-label">NIVEL:</span>
+                <span id="levelDisplay" class="ui-value">1</span>
+            </div>
+            <div class="ui-section">
+                <span class="ui-label">VIDAS:</span>
+                <span id="livesDisplay" class="ui-value">❤️❤️❤️</span>
+            </div>
+            <div class="ui-section">
+                <span class="ui-label">CRISTALES:</span>
+                <span id="crystalsDisplay" class="ui-value">0/10</span>
+            </div>
+            <div class="ui-section">
+                <span class="ui-label">LLAVES:</span>
+                <span id="keysDisplay" class="ui-value">0</span>
+            </div>
+        </div>
+
+        <!-- Canvas del juego -->
+        <div id="canvasWrapper">
+            <canvas id="gameCanvas" width="320" height="240"></canvas>
+        </div>
+
+        <!-- Pantalla de pausa -->
+        <div id="pauseScreen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>PAUSA</h2>
+                <p>Presiona ESC para continuar</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Game Over -->
+    <div id="gameOverScreen" class="screen hidden">
+        <div class="screen-content">
+            <h1 class="title">GAME OVER</h1>
+            <div class="game-over-stats">
+                <p>PUNTUACIÓN FINAL: <span id="finalScore">0</span></p>
+                <p>NIVEL ALCANZADO: <span id="finalLevel">1</span></p>
+                <p>CRISTALES: <span id="finalCrystals">0</span></p>
+            </div>
+            <button id="restartButton" class="pixel-button">REINTENTAR</button>
+            <button id="menuButton" class="pixel-button">MENÚ PRINCIPAL</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de victoria de nivel -->
+    <div id="levelCompleteScreen" class="screen hidden">
+        <div class="screen-content">
+            <h1 class="title">¡NIVEL COMPLETADO!</h1>
+            <div class="level-stats">
+                <p>CRISTALES RECOLECTADOS: <span id="levelCrystals">0</span></p>
+                <p>BONUS DE TIEMPO: <span id="timeBonus">0</span></p>
+                <p>PUNTOS GANADOS: <span id="levelPoints">0</span></p>
+            </div>
+            <button id="nextLevelButton" class="pixel-button">SIGUIENTE NIVEL</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

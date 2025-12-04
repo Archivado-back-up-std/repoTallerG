@@ -1,0 +1,419 @@
+/* ============================================
+   PIXEL QUEST - ESTILOS RETRO 8/16 BITS
+   ============================================ */
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #0a0a14 0%, #1a1a2e 100%);
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Efecto scanlines CRT */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+    animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+/* Efecto de vignette */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Pantallas generales */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(10, 10, 20, 0.95);
+    z-index: 100;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.screen-content {
+    text-align: center;
+    padding: 40px;
+    background: #16213e;
+    border: 4px solid #00ff00;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.5),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+    max-width: 600px;
+    animation: glowBorder 2s ease-in-out infinite;
+}
+
+@keyframes glowBorder {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 20px rgba(0, 255, 0, 0.1); }
+    50% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.8), inset 0 0 30px rgba(0, 255, 0, 0.2); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Título principal con efecto glitch */
+.title {
+    font-size: 32px;
+    color: #00ff00;
+    margin-bottom: 20px;
+    text-shadow: 
+        2px 2px 0 #ff00ff,
+        -2px -2px 0 #00ffff;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% {
+        text-shadow: 
+            2px 2px 0 #ff00ff,
+            -2px -2px 0 #00ffff;
+    }
+    95% {
+        text-shadow: 
+            3px 3px 0 #ff00ff,
+            -3px -3px 0 #00ffff;
+        transform: translate(2px, -2px);
+    }
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #ffff00;
+    margin-bottom: 30px;
+    animation: blink 2s infinite;
+}
+
+/* Instrucciones */
+.instructions {
+    text-align: left;
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    max-width: 400px;
+}
+
+.instructions h2 {
+    font-size: 12px;
+    color: #00ffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.instructions p {
+    font-size: 8px;
+    line-height: 16px;
+    color: #ffffff;
+}
+
+/* High score */
+.high-score {
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #ffd700;
+}
+
+.high-score p {
+    font-size: 10px;
+    color: #ffd700;
+}
+
+/* Botones pixel */
+.pixel-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 15px 30px;
+    margin: 10px;
+    background: #00ff00;
+    color: #000000;
+    border: 4px solid #ffffff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s;
+    box-shadow: 
+        4px 4px 0 #000000,
+        0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.pixel-button:hover {
+    background: #00ffff;
+    transform: translate(-2px, -2px);
+    box-shadow: 
+        6px 6px 0 #000000,
+        0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+.pixel-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        2px 2px 0 #000000,
+        0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Contenedor del juego */
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+/* UI del juego */
+#gameUI {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 960px;
+    padding: 15px;
+    background: #16213e;
+    border: 4px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.ui-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.ui-label {
+    font-size: 8px;
+    color: #00ffff;
+}
+
+.ui-value {
+    font-size: 12px;
+    color: #ffff00;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Canvas wrapper con borde CRT */
+#canvasWrapper {
+    position: relative;
+    background: #000000;
+    padding: 20px;
+    border: 8px solid #1a1a2e;
+    box-shadow: 
+        0 0 40px rgba(0, 255, 0, 0.3),
+        inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+#canvasWrapper::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(0, 255, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Canvas con renderizado pixelado */
+#gameCanvas {
+    display: block;
+    width: 960px;
+    height: 720px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    background: #000000;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay de pausa */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.overlay-content {
+    text-align: center;
+    padding: 40px;
+    background: #16213e;
+    border: 4px solid #ffff00;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+}
+
+.overlay-content h2 {
+    font-size: 24px;
+    color: #ffff00;
+    margin-bottom: 20px;
+}
+
+.overlay-content p {
+    font-size: 10px;
+    color: #ffffff;
+    animation: blink 1s infinite;
+}
+
+/* Estadísticas de Game Over y Level Complete */
+.game-over-stats,
+.level-stats {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+}
+
+.game-over-stats p,
+.level-stats p {
+    font-size: 10px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.game-over-stats span,
+.level-stats span {
+    color: #00ff00;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.3; }
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    #gameUI {
+        width: 640px;
+        font-size: 6px;
+    }
+    
+    #gameCanvas {
+        width: 640px;
+        height: 480px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .pixel-button {
+        font-size: 10px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 680px) {
+    #gameUI {
+        width: 320px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    #gameCanvas {
+        width: 320px;
+        height: 240px;
+    }
+    
+    .screen-content {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 16px;
+    }
+    
+    .instructions {
+        padding: 10px;
+    }
+    
+    .instructions h2 {
+        font-size: 10px;
+    }
+    
+    .instructions p {
+        font-size: 6px;
+    }
+    
+    .pixel-button {
+        font-size: 8px;
+        padding: 10px 20px;
+    }
+}
+
+/* Efectos de partículas (usado por JavaScript) */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    animation: particle-float 1s ease-out forwards;
+}
+
+@keyframes particle-float {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.5);
+    }
+}
