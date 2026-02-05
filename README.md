@@ -1,4 +1,4 @@
-# 🎮 Pixel Quest - Juego Retro en Pixel Art
+# G Pixel Art
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
