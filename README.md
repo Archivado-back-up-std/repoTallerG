@@ -9,7 +9,7 @@ Un juego de aventura retro estilo 8/16 bits creado con HTML5, CSS3 y JavaScript 
 
 ---
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Características](#-características)
 - [Arquitectura del Sistema](#-arquitectura-del-sistema)
@@ -25,39 +25,39 @@ Un juego de aventura retro estilo 8/16 bits creado con HTML5, CSS3 y JavaScript 
 
 ---
 
-## 🕹️ Características
+## Características
 
 ### Gameplay
-- ⚔️ **Aventura RPG minimalista** con mecánicas simples pero adictivas
-- 🔷 **Sistema de recolección** de cristales, pociones y llaves
-- 👾 **Enemigos variados** con comportamientos únicos (Slimes y Bolas de Fuego)
-- 🎯 **3 niveles progresivos** con dificultad creciente
-- ❤️ **Sistema de vidas** (3 vidas) e invulnerabilidad temporal (2 segundos)
-- 🏆 **Puntuación y high score** guardados en LocalStorage
-- ⏸️ **Sistema de pausa** con tecla ESC
+- **Aventura RPG minimalista** con mecánicas simples pero adictivas
+- **Sistema de recolección** de cristales, pociones y llaves
+- **Enemigos variados** con comportamientos únicos (Slimes y Bolas de Fuego)
+- **3 niveles progresivos** con dificultad creciente
+- **Sistema de vidas** (3 vidas) e invulnerabilidad temporal (2 segundos)
+- **Puntuación y high score** guardados en LocalStorage
+- **Sistema de pausa** con tecla ESC
 
 ### Gráficos Pixel Art
-- 🎨 Resolución nativa: **320x240 píxeles** (escalable a 960x720)
-- 🌈 Paleta de colores limitada (**16 colores** estilo retro)
-- 👤 Sprites de **16x16 píxeles** para personajes y tiles
-- ✨ Efectos visuales retro (parpadeo, screen shake, partículas)
-- 📺 Efecto CRT con **scanlines** animadas
-- 🖼️ **image-rendering: pixelated** para mantener estética retro
+- Resolución nativa: **320x240 píxeles** (escalable a 960x720)
+- Paleta de colores limitada (**16 colores** estilo retro)
+- Sprites de **16x16 píxeles** para personajes y tiles
+- Efectos visuales retro (parpadeo, screen shake, partículas)
+- Efecto CRT con **scanlines** animadas
+- **image-rendering: pixelated** para mantener estética retro
 
 ### Audio
-- 🔊 Efectos de sonido **8-bit** generados con **Web Audio API**
-- 🎵 Sonidos para: recolección, daño, victoria de nivel y game over
-- 🔇 Sistema de audio adaptativo (se activa con interacción del usuario)
+- Efectos de sonido **8-bit** generados con **Web Audio API**
+- Sonidos para: recolección, daño, victoria de nivel y game over
+- Sistema de audio adaptativo (se activa con interacción del usuario)
 
 ### Rendimiento
-- ⚡ **60 FPS** mediante `requestAnimationFrame`
-- 🎯 Optimización de colisiones con sistema **AABB** (Axis-Aligned Bounding Box)
-- 💾 **Persistencia de datos** con LocalStorage
-- 📱 **Responsive design** adaptativo
+- **60 FPS** mediante `requestAnimationFrame`
+- Optimización de colisiones con sistema **AABB** (Axis-Aligned Bounding Box)
+- **Persistencia de datos** con LocalStorage
+- **Responsive design** adaptativo
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Diagrama de Arquitectura General
 
